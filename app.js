@@ -12,6 +12,7 @@ var chat = require('./routes/chat');
 var bus = require('./routes/bus');
 var news = require('./routes/news');
 var badges = require('./routes/badges');
+var facts = require('./routes/facts');
 
 var app = express();
 
@@ -60,6 +61,8 @@ io.on('connection', function (socket) {
 
 app.use(function(req,res,next) {
   req.users = user_store;
+  req.io = io;
+  req.chat_store = chat_store;
   next();
 });
 
@@ -82,7 +85,7 @@ app.use('/chat', chat);
 app.use('/bus', bus);
 app.use('/news', news);
 app.use('/badges', badges);
-//app.use('/users', users);
+app.use('/facts', facts);
 
 
 
