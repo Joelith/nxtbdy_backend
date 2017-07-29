@@ -5,8 +5,8 @@ var router = express.Router();
 
 router.get('/nearest', function(req, res, next) {
 	var buses = [{
-		id: '200_E',
-		title: '200 (To Tuggeranong)'
+		id: '900_A',
+		title: '900 (To City)'
 	}]
   res.send(buses);
 });
